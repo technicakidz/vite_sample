@@ -19,39 +19,39 @@ const user = {
 //   </h1>
 // )
 
-const element = (
-<div>
-  <h1>
-    {getGreeting(user)} 👋
-  </h1>
-  <h2>Good to see you here.</h2>
-  </div>
-)
+// const element = (
+// <div>
+//   <h1>
+//     {getGreeting(user)} 👋
+//   </h1>
+//   <h2>Good to see you here.</h2>
+//   </div>
+// )
 
 const elementLiteral = <div tabIndex="0"></div>;
 const elementScript = <img src={user.avatarUrl}></img>;
 
-const elementA = (
-  <h1 className="greeting">
-    Hello, world!
-  </h1>
-);
+// const elementA = (
+//   <h1 className="greeting">
+//     Hello, world!
+//   </h1>
+// );
 
-const elementB = React.createElement(
-  'h1',
-  {className: 'greeting'},
-  'Hello, world!'
-);
+// const elementB = React.createElement(
+//   'h1',
+//   {className: 'greeting'},
+//   'Hello, world!'
+// );
 
 // React 要素
 // Note: this structure is simplified
-const elementC = {
-  type: 'h1',
-  props: {
-    className: 'greeting',
-    children: 'Hello, world!'
-  }
-};
+// const elementC = {
+//   type: 'h1',
+//   props: {
+//     className: 'greeting',
+//     children: 'Hello, world!'
+//   }
+// };
 
 function getGreeting(user){
   if (user) {
@@ -63,9 +63,9 @@ function getGreeting(user){
 }
 
 ReactDOM.render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>,
-  elementA,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  // elementA,
   document.getElementById('root')
 )

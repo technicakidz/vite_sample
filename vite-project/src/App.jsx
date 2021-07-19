@@ -1,47 +1,34 @@
 import React, { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Board from './components/Board';
+import Home from './components/Home';
 
+const App = () => { // TODO: classに書き換え可能？
+  const [name, setText] = useState('')
 
-function App() {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0) // useStatusがフック
-  const name = 'ystk';
-  const element = <h1>Hello, {name}!</h1>;
+  const handleChange = (e) => {
+    setText(() => e.target.value)
+  }
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hoge!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-          <element>{element}</element>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+    <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+    <h1>Hello, {name}!</h1>
+      <input value={name} onChange={handleChange} type="name" />
+
+      <button onClick={() => alert("本当に?")}>Enter</button>
+      <Router>
+        <div>
+          <Navbar /><hr/>
+          <Route exact path='/' component={Home}/>
           {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
+          <Route path='/Board' component={Board}/>
+        </div>
+      </Router>
       </header>
     </div>
   )
